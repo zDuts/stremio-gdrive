@@ -64,11 +64,14 @@ class IMDb:
 
             for td in table_data:
                 title = ut.sanitize(ut.safe_get(td, 1).text)
-                if title and title != first_title:
+                title2 = title.replace(" s ","s ") #Remove single s
+                title3 = title2.replace (".","") #Remove Dots
+                if title3 and title3 != first_title:
                     # Dont use titles which are just nums with 
                     # less than 3 digits
-                    if not (title.isdigit() and len(title) < 3):
-                        titles.add(title)
+                    if not (title3.isdigit() and len(title3) < 1):
+                        titles.add(title3)
+
 
             limit = 29  # To "ease" gdrive batch api's suffering
             self.titles += list(titles)[:limit]
