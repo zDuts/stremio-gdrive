@@ -97,7 +97,7 @@ class IMDb:
             return True
         return False
 
-    def set_meta(self, meta, year="year", title="title"):
+    def set_meta(self, meta, year="year", title="name"):
         self.titles.append(ut.sanitize(meta.get(title, "")))
         self.year = str(meta.get(year, "")).split("–")[0]
 
