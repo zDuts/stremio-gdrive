@@ -17,10 +17,10 @@ class IMDb:
 
         self.fetch_dest = "IMDB_HTML"
         if not self.get_meta_from_imdb_html():
+#    self.fetch_dest = "IMDB_SG_API"
+         #   if not self.get_meta_from_imdb_sg():
                 self.fetch_dest = "CINEMETA"
                 if not self.get_meta_from_cinemeta():
-                    self.fetch_dest = "IMDB_SG_API"
-                    if not self.get_meta_from_imdb_sg():
                     self.fetch_dest = "NULL"
                     raise MetadataNotFound(
                         f"Couldn't find metadata for {self.type} {self.id}!"
